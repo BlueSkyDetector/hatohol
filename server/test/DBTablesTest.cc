@@ -1086,6 +1086,18 @@ const VMInfo testVMInfo[] = {
 	AUTO_INCREMENT_VALUE,            // id
 	2111,                            // hostId
 	1050,                            // hypervisorHostId
+}, {
+	AUTO_INCREMENT_VALUE,            // id
+	2112,                            // hostId
+	1050,                            // hypervisorHostId
+}, {
+	AUTO_INCREMENT_VALUE,            // id
+	2113,                            // hostId
+	1050,                            // hypervisorHostId
+}, {
+	AUTO_INCREMENT_VALUE,            // id
+	10005,                           // hostId
+	1080,                            // hypervisorHostId
 }
 };
 const size_t NumTestVMInfo = ARRAY_SIZE(testVMInfo);
