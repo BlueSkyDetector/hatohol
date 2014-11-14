@@ -411,8 +411,8 @@ void test_getHypervisorWithUserWhoCanAccessAllHostgroup(gconstpointer data)
 
 void test_getVirtualMachines(void)
 {
-	typedef map<HostIdType, set<HostIdType> > HypervisorVMMap;
-	typedef HypervisorVMMap::iterator         HypervisorVMMapIterator;
+	typedef map<HostIdType, HostIdSet> HypervisorVMMap;
+	typedef HypervisorVMMap::iterator  HypervisorVMMapIterator;
 
 	loadTestDBVMInfo();
 	DECLARE_DBTABLES_HOST(dbHost);
