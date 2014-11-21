@@ -651,11 +651,6 @@ AccessInfo testAccessInfo[] = {
 	1,                 // hostgroupId
 }, {
 	0,                 // id
-	1,                 // userId
-	211,               // serverId
-	123,               // hostgroupId
-}, {
-	0,                 // id
 	2,                 // userId
 	ALL_SERVERS,       // serverId
 	ALL_HOST_GROUPS,   // hostgroupId
