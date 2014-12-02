@@ -552,7 +552,7 @@ ItemTablePtr HatoholArmPluginInterface::createItemTable(mlpl::SmartBuffer &sbuf)
 	const uint32_t numGroups = LtoN(header->numGroups);
 	const uint32_t length    = LtoN(header->length);
 
-	VariableItemTablePtr itemTblPtr(new ItemTable(), false);
+	VariableItemTablePtr itemTblPtr;
 	// append ItemGroups
 	for (size_t idx = 0; idx < numGroups; idx++)
 		itemTblPtr->add(createItemGroup(sbuf));
@@ -561,7 +561,7 @@ ItemTablePtr HatoholArmPluginInterface::createItemTable(mlpl::SmartBuffer &sbuf)
 	HATOHOL_ASSERT(actualLength == length,
 	               "Actual length is different from that in the header: "
 	               " %zd (expect: %" PRIu32 ")", actualLength, length);
-	return (ItemTablePtr)itemTblPtr;
+	return ItemTablePtr(itemTblPtr, false);
 }
 
 ItemGroupPtr HatoholArmPluginInterface::createItemGroup(mlpl::SmartBuffer &sbuf)
@@ -581,7 +581,7 @@ ItemGroupPtr HatoholArmPluginInterface::createItemGroup(mlpl::SmartBuffer &sbuf)
 	const uint32_t numItems = LtoN(header->numItems);
 	const uint32_t length   = LtoN(header->length);
 
-	VariableItemGroupPtr itemGrpPtr(new ItemGroup(), false);
+	VariableItemGroupPtr itemGrpPtr;
 	// append ItemData
 	for (size_t idx = 0; idx < numItems; idx++)
 		itemGrpPtr->add(createItemData(sbuf));
@@ -591,7 +591,7 @@ ItemGroupPtr HatoholArmPluginInterface::createItemGroup(mlpl::SmartBuffer &sbuf)
 	               "Actual length is different from that in the header: "
 	               " %zd (expect: %" PRIu32 ")", actualLength, length);
 	itemGrpPtr->freeze();
-	return (ItemGroupPtr)itemGrpPtr;
+	return ItemGroupPtr(itemGrpPtr, false);
 }
 
 ItemDataPtr HatoholArmPluginInterface::createItemData(SmartBuffer &sbuf)
